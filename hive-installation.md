@@ -74,4 +74,31 @@
 ## 2. install hive ##
 1. set &amp;serverTimezone=UTC to `<name>javax.jdo.option.ConnectionURL</name>`
 2. set hive db to latin1.
-3. execute `schematool -dbType mysql -initSchema` before creating table.
+3. execute `schematool -dbType mysql -initSchema` before creating table.  
+## 3. start hadoop and hive ##
+1. start ***cmd*** and enter ***HADOOP_HOME***\sbin.
+2. input `start-all.cmd` to start hadoop, if you want to stop, input `stop-all.cmd`.
+3. start ***GIT BASH***.
+4. input `hive --service metastore` to start hive.
+5. start another ***GIT BASH*** and input `hive`.
+6. enter `show tables;` to see which tables you have created.
+# 4. connect hive db using ***DBeaver*** #
+1. the port of hive db is 10000 by default which is defined in ***hive-site.xml*** with key `hive.server2.thrift.port`.
+2. the schema of hive db is default.
+3. user name is set in hive-site.xml, which is defined by `javax.jdo.option.ConnectionUserName`.
+4. user password is set in hive-site.xml, which is defined by `javax.jdo.option.ConnectionPassword`.
+5. if you connect hive db, it may appear error that shows ***User root is not allowed to impersonate root***.  
+   in this case, config hadoop's core-site.xml.  
+	add following properties into core-site.xml of hadoop.
+
+```xml  
+    <property> 
+		<name>hadoop.proxyuser.***.hosts</name> 
+		<value>*</value> 
+	</property> 
+	<property>
+        <name>hadoop.proxyuser.***.groups</name>
+        <value>*</value>
+	</property>
+```
+	in my case, User ***maomao*** is not allowed to impersonate root, so I set *** into ***maomao***.
