@@ -90,15 +90,14 @@
 5. if you connect hive db, it may appear error that shows ***User root is not allowed to impersonate root***.  
    in this case, config hadoop's core-site.xml.  
 	add following properties into core-site.xml of hadoop.
-
-```xml  
-    <property> 
-		<name>hadoop.proxyuser.***.hosts</name> 
-		<value>*</value> 
-	</property> 
-	<property>
-        <name>hadoop.proxyuser.***.groups</name>
-        <value>*</value>
-	</property>
+```xml
+<property>
+	<name>hadoop.proxyuser.***.hosts</name>
+	<value>*</value> 
+</property> 
+<property>
+	<name>hadoop.proxyuser.***.groups</name>
+	<value>*</value>
+</property>
 ```
-	in my case, User ***maomao*** is not allowed to impersonate root, so I set *** into ***maomao***.
+in my case, User ***maomao*** is not allowed to impersonate root, so I set *** into ***maomao***.
