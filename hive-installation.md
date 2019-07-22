@@ -79,9 +79,10 @@
 1. start ***cmd*** and enter ***HADOOP_HOME***\sbin.
 2. input `start-all.cmd` to start hadoop, if you want to stop, input `stop-all.cmd`.
 3. start ***GIT BASH***.
-4. input `hive --service metastore` to start hive.
-5. start another ***GIT BASH*** and input `hive`.
-6. enter `show tables;` to see which tables you have created.
+4. input `hive --service metastore` in one ***GIT BASH***.
+5. input `hive --service hivesever2` in another ***GIT BASH***.
+6. start another ***GIT BASH*** and input `hive`.
+7. enter `show tables;` to see which tables you have created.
 # 4. connect hive db using ***DBeaver*** #
 1. the port of hive db is 10000 by default which is defined in ***hive-site.xml*** with key `hive.server2.thrift.port`.
 2. the schema of hive db is default.
